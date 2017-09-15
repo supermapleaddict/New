@@ -1,0 +1,229 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>project1_1_1</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-09-15"><meta name="DC.source" content="project1_1_1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%This project basically allows you to input any number between 100-150 and get the amount seperated into 50s/10s/1s bills.%</span>
+prompt = <span class="string">'Hello! Welcome, to start, please put the amount you want (100-150) into cashout'</span>;
+
+x = input(prompt)
+Cashout= x
+
+<span class="keyword">for</span> i=Cashout
+   <span class="keyword">if</span> i/50 ==2
+       R4= [2,0,0];
+       R1= 0;
+
+   <span class="keyword">else</span>
+       R1=i/50 -2;
+   <span class="keyword">end</span>
+   <span class="keyword">if</span> i/50 ==3
+       R4= [3,0,0];
+           R1= 0;
+
+   <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+
+<span class="keyword">for</span> d=R1
+    <span class="keyword">if</span> (d&lt;.2)&amp;&amp; (5*d&gt;.01)
+        R4= [2,0,50*d];
+
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> (.2&lt;d) &amp;&amp; (5*d&lt;5)
+        R3= 5*R1 ;
+    <span class="keyword">else</span>
+        R3=0;
+    <span class="keyword">end</span>
+
+    <span class="keyword">if</span> (0.2&lt;d) &amp;&amp; (5*d&lt;1.00001) <span class="comment">%An example of how imporant domain and how numbers can be wrong; (5*d&gt;1.)</span>
+           R4= [2,1,0];
+
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> (1.0001&lt;5*d) &amp;&amp; (5*d&lt;2)
+           R4= [2,2,0];
+
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> (3&lt;5*d) &amp;&amp; (5*d&lt;3.9999) <span class="comment">%The .9999 here is due to the variable 5*d being less than 4. mat lab couldn't distinguish it correctly when using "4"%</span>
+           R4= [2,3,0];
+
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> (3.99999&lt;5*d) &amp;&amp; (5*d&lt;5)<span class="comment">%Same from above%</span>
+           R4= [2,4,0];
+
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">for</span> f= R3
+    <span class="keyword">if</span>  (5*(f-1)&gt;0.001) &amp;&amp; ((f-1)&lt;.9999) <span class="comment">%The domain is specific here because f doesn't equal a whole number. so when subtracting, one might get 8.2*e-64.</span>
+        R4= [2,1,10*(R3-1)];             <span class="comment">%The function is 10(R3-1) because R3 is already multiplied by 5; similar to the prievious function from before</span>
+    <span class="keyword">end</span>                                  <span class="comment">%in the tens paragraph, (50*d), there is a difference however. The formula is (R3-n) where n is the 10s place</span>
+    <span class="keyword">if</span> ((f-2)&lt;.9999) &amp;&amp;(5*(f-2)&gt;0.001)   <span class="comment">%Without the function, the entire ones place would be +10, +20, +n*10 more than what it should be.</span>
+        R4= [2,2,10*(R3-2)];
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> ((f-3)&lt;.9999) &amp;&amp;(5*(f-3)&gt;0.001)
+        R4= [2,3,10*(R3-3)];
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> ((f-4)&lt;.9999) &amp;&amp;(5*(f-4)&gt;0.001)
+        R4= [2,4,10*(R3-4)];
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+X5=[R4(1,end), <span class="string">"1$ bills"</span>];
+X3=[R4(1,2), <span class="string">"10$ bills"</span>];
+X1=[R4(1,1), <span class="string">"50$ bills"</span>];
+    <span class="keyword">for</span> n = R4 (1,1)
+    <span class="keyword">if</span> n==0         <span class="comment">%If x is used, "waiting..." would show up. (basically no number inputted)%</span>
+    <span class="string">"Waiting..."</span>
+    <span class="keyword">else</span>
+        [<span class="string">"Here is your total"</span>, [X1, X3, X5], <span class="string">"Have a nice day!"</span>] <span class="comment">%If a number is used (100-150), the X(n) is nested into the string function</span>
+    <span class="keyword">end</span>                                                          <span class="comment">%to create a 1x8 string array. The message is short because matlab cuts off</span>
+    <span class="keyword">end</span>                                                          <span class="comment">% long messages</span>
+    <span class="comment">%Made by supermapleaddict; Job Sayago.%</span>
+</pre><pre class="codeoutput error">Error using input
+Cannot call INPUT from EVALC.
+Error in project1_1_1 (line 4)
+x = input(prompt)</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%This project basically allows you to input any number between 100-150 and get the amount seperated into 50s/10s/1s bills.%
+prompt = 'Hello! Welcome, to start, please put the amount you want (100-150) into cashout';
+
+x = input(prompt)
+Cashout= x
+
+for i=Cashout
+   if i/50 ==2
+       R4= [2,0,0];
+       R1= 0;
+       
+   else 
+       R1=i/50 -2;
+   end
+   if i/50 ==3
+       R4= [3,0,0];
+           R1= 0;
+           
+   end
+   
+end
+
+for d=R1
+    if (d<.2)&& (5*d>.01)
+        R4= [2,0,50*d];
+        
+    end
+    if (.2<d) && (5*d<5)
+        R3= 5*R1 ;
+    else
+        R3=0;
+    end
+
+    if (0.2<d) && (5*d<1.00001) %An example of how imporant domain and how numbers can be wrong; (5*d>1.)
+           R4= [2,1,0];
+           
+    end
+    if (1.0001<5*d) && (5*d<2)
+           R4= [2,2,0];
+           
+    end
+    if (3<5*d) && (5*d<3.9999) %The .9999 here is due to the variable 5*d being less than 4. mat lab couldn't distinguish it correctly when using "4"%
+           R4= [2,3,0];
+           
+    end
+    if (3.99999<5*d) && (5*d<5)%Same from above%
+           R4= [2,4,0];
+           
+    end
+end
+
+for f= R3
+    if  (5*(f-1)>0.001) && ((f-1)<.9999) %The domain is specific here because f doesn't equal a whole number. so when subtracting, one might get 8.2*e-64. 
+        R4= [2,1,10*(R3-1)];             %The function is 10(R3-1) because R3 is already multiplied by 5; similar to the prievious function from before
+    end                                  %in the tens paragraph, (50*d), there is a difference however. The formula is (R3-n) where n is the 10s place
+    if ((f-2)<.9999) &&(5*(f-2)>0.001)   %Without the function, the entire ones place would be +10, +20, +n*10 more than what it should be. 
+        R4= [2,2,10*(R3-2)];
+    end
+    if ((f-3)<.9999) &&(5*(f-3)>0.001)
+        R4= [2,3,10*(R3-3)];
+    end
+    if ((f-4)<.9999) &&(5*(f-4)>0.001)
+        R4= [2,4,10*(R3-4)];
+    end
+end
+
+X5=[R4(1,end), "1$ bills"];  
+X3=[R4(1,2), "10$ bills"];
+X1=[R4(1,1), "50$ bills"];
+    for n = R4 (1,1)
+    if n==0         %If x is used, "waiting..." would show up. (basically no number inputted)%
+    "Waiting..."
+    else
+        ["Here is your total", [X1, X3, X5], "Have a nice day!"] %If a number is used (100-150), the X(n) is nested into the string function
+    end                                                          %to create a 1x8 string array. The message is short because matlab cuts off
+    end                                                          % long messages
+    %Made by supermapleaddict; Job Sayago.%
+##### SOURCE END #####
+--></body></html>
